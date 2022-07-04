@@ -20,21 +20,22 @@
   flex-direction: column;
   border: 1px solid;
   align-self: center;
+  /* background-image: url(https://t4.ftcdn.net/jpg/03/25/38/41/360_F_325384191_sg1D5lYWfRedGQsBm8xIHnsSAUUUVxGE.jpg); */
 }
 
 .dice {
   display: flex;
   flex-direction: row; 
   width: 400px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
 .die {
   border: 1px solid;
-  width: 50px;
-  height: 50px;
-  border-color: red;
+  width: 75px;
+  height: 75px;
+  border-color: black;
   align-items: center;
   justify-content: center;
   display: flex;
