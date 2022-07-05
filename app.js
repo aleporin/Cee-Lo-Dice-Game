@@ -16,6 +16,7 @@ let d6 = document.querySelector('#d6')
 
 const computerRoll = () => {
   d1.innerHTML = Math.floor(Math.random() * 6 + 1)
+  // d1 and add class name for respective dice background image d1.className = BG + d1.innerHTML
   d2.innerHTML = Math.floor(Math.random() * 6 + 1)
   d3.innerHTML = Math.floor(Math.random() * 6 + 1)
   dice = []
@@ -34,8 +35,10 @@ const computerScore = () => {
     compStatus.innerHTML = `Banker rolled a ${d2.innerHTML}`
   } else if (d2.innerHTML == d3.innerHTML) {
     compStatus.innerHTML = `Banker rolled a ${d1.innerHTML}`
-  } else if (dice === ['1', '2', '3']) {
+  } else if (JSON.stringify(dice) === JSON.stringify(['1', '2', '3'])) {
     console.log('automatic loss')
+  } else if (JSON.stringify(dice) === JSON.stringify(['4', '5', '6'])) {
+    console.log('headcrack')
   }
 }
 
