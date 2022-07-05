@@ -4,6 +4,8 @@ const rollDiceBtn = document.querySelector('#rollDice')
 
 let compStatus = document.querySelector('.compScore')
 
+let dice = []
+
 let d1 = document.querySelector('#d1')
 let d2 = document.querySelector('#d2')
 let d3 = document.querySelector('#d3')
@@ -16,15 +18,14 @@ const computerRoll = () => {
   d1.innerHTML = Math.floor(Math.random() * 6 + 1)
   d2.innerHTML = Math.floor(Math.random() * 6 + 1)
   d3.innerHTML = Math.floor(Math.random() * 6 + 1)
+  dice = []
+  dice.push(d1.innerHTML, d2.innerHTML, d3.innerHTML)
+  dice = dice.sort()
   computerScore()
-}
-const playerRoll = () => {
-  d4.innerHTML = Math.floor(Math.random() * 6 + 1)
-  d5.innerHTML = Math.floor(Math.random() * 6 + 1)
-  d6.innerHTML = Math.floor(Math.random() * 6 + 1)
 }
 
 const computerScore = () => {
+  console.log(dice)
   if (d1.innerHTML == d2.innerHTML && d2.innerHTML == d3.innerHTML) {
     compStatus.innerHTML = `Banker rolled triple ${d1.innerHTML}'s`
   } else if (d1.innerHTML == d2.innerHTML) {
@@ -33,7 +34,15 @@ const computerScore = () => {
     compStatus.innerHTML = `Banker rolled a ${d2.innerHTML}`
   } else if (d2.innerHTML == d3.innerHTML) {
     compStatus.innerHTML = `Banker rolled a ${d1.innerHTML}`
+  } else if (dice === ['1', '2', '3']) {
+    console.log('automatic loss')
   }
+}
+
+const playerRoll = () => {
+  d4.innerHTML = Math.floor(Math.random() * 6 + 1)
+  d5.innerHTML = Math.floor(Math.random() * 6 + 1)
+  d6.innerHTML = Math.floor(Math.random() * 6 + 1)
 }
 
 playBtn.addEventListener('click', computerRoll)
