@@ -2,6 +2,8 @@ const playBtn = document.querySelector('#btn')
 
 const rollDiceBtn = document.querySelector('#rollDice')
 
+const playAgain = document.querySelector('#reset')
+
 let compStatus = document.querySelector('.compScore')
 
 let playerStatus = document.querySelector('.playerScore')
@@ -44,6 +46,7 @@ let heiarchy = [
 ]
 
 const computerRoll = () => {
+  playBtn.style.display = 'none'
   d1.innerHTML = Math.floor(Math.random() * 6 + 1)
   // d1 and add class name for respective dice background image d1.className = BG + d1.innerHTML
   d2.innerHTML = Math.floor(Math.random() * 6 + 1)
@@ -81,6 +84,7 @@ const computerScore = () => {
     compStatus.innerHTML = `Banker Rolls Again`
     computerRoll()
   }
+  checkComputer()
 }
 
 const playerRoll = () => {
@@ -121,14 +125,43 @@ const playerScore = () => {
   checkForWinner()
 }
 
+const checkComputer = () => {
+  if (JSON.stringify(compDice) === JSON.stringify(['1', '2', '3'])) {
+    console.log('autoloss')
+  } else if (JSON.stringify(compDice) === JSON.stringify(['4', '5', '6'])) {
+    console.log('autowin')
+  }
+}
+
 const checkForWinner = () => {
   console.log(playerIndex, compIndex)
   if (playerIndex > compIndex) {
     console.log('winner')
   } else if (playerIndex < compIndex) {
     console.log('Loser')
+  } else if (JSON.stringify(playerDice) === JSON.stringify(['1', '2', '3'])) {
+    console.log('autoloss')
+  } else if (JSON.stringify(playerDice) === JSON.stringify(['4', '5', '6'])) {
+    console.log('autowin')
+  } else if ((playerIndex = compIndex)) {
+    console.log('tie')
   }
 }
+
+let resetGame = () => {
+  playerStatus.innerHTML = ''
+  compStatus.innerHTML = ''
+  d1.innerHTML = '1'
+  d2.innerHTML = '2'
+  d3.innerHTML = '3'
+  d4.innerHTML = '4'
+  d5.innerHTML = '5'
+  d6.innerHTML = '6'
+  playBtn.style.display = 'block'
+  console.log('play again')
+}
+
+playAgain.addEventListener('click', resetGame)
 
 playBtn.addEventListener('click', computerRoll)
 
