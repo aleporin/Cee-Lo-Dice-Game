@@ -2,17 +2,16 @@ const playBtn = document.querySelector('#btn')
 
 const rollDiceBtn = document.querySelector('#rollDice')
 
-const playAgain = document.querySelector('#reset')
+const playAgainBtn = document.querySelector('#reset')
 
 let compStatus = document.querySelector('.compScore')
 
 let playerStatus = document.querySelector('.playerScore')
 
+let resultMsg = document.querySelector('.resultMessage')
+
 let compDice = []
 let playerDice = []
-
-// const playerOne = banker
-// const playerTwo = user
 
 let d1 = document.querySelector('#d1')
 let d2 = document.querySelector('#d2')
@@ -21,8 +20,6 @@ let d3 = document.querySelector('#d3')
 let d4 = document.querySelector('#d4')
 let d5 = document.querySelector('#d5')
 let d6 = document.querySelector('#d6')
-
-let gameOver = false
 
 let playerIndex
 
@@ -45,6 +42,9 @@ let heiarchy = [
   '4-5-6'
 ]
 
+rollDiceBtn.style.display = 'none'
+playAgainBtn.style.display = 'none'
+
 const computerRoll = () => {
   playBtn.style.display = 'none'
   d1.innerHTML = Math.floor(Math.random() * 6 + 1)
@@ -61,25 +61,31 @@ const computerScore = () => {
   console.log(compDice)
   if (d1.innerHTML == d2.innerHTML && d2.innerHTML == d3.innerHTML) {
     compStatus.innerHTML = `Banker rolled triple ${d1.innerHTML}'s`
+    rollDiceBtn.style.display = 'inline'
   } else if (d1.innerHTML == d2.innerHTML) {
     compStatus.innerHTML = `Banker rolled a ${d3.innerHTML}`
-    console.log(JSON.stringify(d3.innerHTML))
+    // console.log(JSON.stringify(d3.innerHTML))
+    rollDiceBtn.style.display = 'inline'
     compIndex = heiarchy.indexOf(d3.innerHTML)
     // console.log(compIndex)
   } else if (d1.innerHTML == d3.innerHTML) {
     compStatus.innerHTML = `Banker rolled a ${d2.innerHTML}`
-    console.log(JSON.stringify(d2.innerHTML))
+    // console.log(JSON.stringify(d2.innerHTML))
+    rollDiceBtn.style.display = 'inline'
     compIndex = heiarchy.indexOf(d2.innerHTML)
     // console.log(compIndex)
   } else if (d2.innerHTML == d3.innerHTML) {
     compStatus.innerHTML = `Banker rolled a ${d1.innerHTML}`
-    console.log(JSON.stringify(d1.innerHTML))
+    // console.log(JSON.stringify(d1.innerHTML))
+    rollDiceBtn.style.display = 'inline'
     compIndex = heiarchy.indexOf(d1.innerHTML)
     // console.log(compIndex)
   } else if (JSON.stringify(compDice) === JSON.stringify(['1', '2', '3'])) {
     compStatus.innerHTML = `1-2-3 Banker Loses`
+    rollDiceBtn.style.display = 'inline'
   } else if (JSON.stringify(compDice) === JSON.stringify(['4', '5', '6'])) {
     compStatus.innerHTML = `HEADCRACK BANKER WINS`
+    rollDiceBtn.style.display = 'inline'
   } else {
     compStatus.innerHTML = `Banker Rolls Again`
     computerRoll()
@@ -101,25 +107,30 @@ const playerScore = () => {
   console.log(playerDice)
   if (d4.innerHTML == d5.innerHTML && d5.innerHTML == d6.innerHTML) {
     playerStatus.innerHTML = `You rolled triple ${d4.innerHTML}'s`
+    rollDiceBtn.style.display = 'none'
   } else if (d4.innerHTML == d5.innerHTML) {
-    playerStatus.innerHTML = `You rolled a ${d6.innerHTML}`
+    // playerStatus.innerHTML = `You rolled a ${d6.innerHTML}`
+    rollDiceBtn.style.display = 'none'
     playerIndex = heiarchy.indexOf(d6.innerHTML)
     // console.log(playerIndex)
   } else if (d4.innerHTML == d6.innerHTML) {
-    playerStatus.innerHTML = `You rolled a ${d5.innerHTML}`
-    console.log(JSON.stringify(d5.innerHTML))
+    // playerStatus.innerHTML = `You rolled a ${d5.innerHTML}`
+    // console.log(JSON.stringify(d5.innerHTML))
     playerIndex = heiarchy.indexOf(d5.innerHTML)
+    rollDiceBtn.style.display = 'none'
     // console.log(playerIndex)
   } else if (d5.innerHTML == d6.innerHTML) {
-    playerStatus.innerHTML = `You rolled a ${d4.innerHTML}`
-    console.log(JSON.stringify(d4.innerHTML))
+    // playerStatus.innerHTML = `You rolled a ${d4.innerHTML}`
+    rollDiceBtn.style.display = 'none'
     playerIndex = heiarchy.indexOf(d4.innerHTML)
-    // console.log(playerIndex)
   } else if (JSON.stringify(playerDice) === JSON.stringify(['1', '2', '3'])) {
-    playerStatus.innerHTML = `1-2-3 You Lose`
+    // playerStatus.innerHTML = `1-2-3 You Lose`
+    rollDiceBtn.style.display = 'none'
   } else if (JSON.stringify(playerDice) === JSON.stringify(['4', '5', '6'])) {
-    playerStatus.innerHTML = `HEADCRACK YOU WIN`
+    // playerStatus.innerHTML = `HEADCRACK YOU WIN`
+    rollDiceBtn.style.display = 'none'
   } else {
+    // rollDiceBtn.style.display = 'none'
     playerStatus.innerHTML = `Roll Again`
   }
   checkForWinner()
@@ -127,41 +138,55 @@ const playerScore = () => {
 
 const checkComputer = () => {
   if (JSON.stringify(compDice) === JSON.stringify(['1', '2', '3'])) {
-    console.log('autoloss')
+    resultMsg.innerHTML = `Congrats a free win!`
+    rollDiceBtn.style.display = 'none'
+    playAgainBtn.style.display = 'block'
   } else if (JSON.stringify(compDice) === JSON.stringify(['4', '5', '6'])) {
-    console.log('autowin')
+    resultMsg.innerHTML = `Yikes you dont even get to roll!`
+    rollDiceBtn.style.display = 'none'
+    playAgainBtn.style.display = 'block'
   }
 }
 
 const checkForWinner = () => {
   console.log(playerIndex, compIndex)
   if (playerIndex > compIndex) {
-    console.log('winner')
+    resultMsg.innerHTML = `Congrats you rolled a ${playerIndex} and won!`
+    playAgainBtn.style.display = 'inline-block'
   } else if (playerIndex < compIndex) {
-    console.log('Loser')
+    resultMsg.innerHTML = `Yikes! You rolled a ${playerIndex} and lost!`
+    playAgainBtn.style.display = 'inline-block'
   } else if (JSON.stringify(playerDice) === JSON.stringify(['1', '2', '3'])) {
-    console.log('autoloss')
+    resultMsg.innerHTML = `1-2-3 yuck. You lose!`
+    playAgainBtn.style.display = 'inline-block'
   } else if (JSON.stringify(playerDice) === JSON.stringify(['4', '5', '6'])) {
-    console.log('autowin')
-  } else if ((playerIndex = compIndex)) {
-    console.log('tie')
+    resultMsg.innerHTML = `HEADCRACK YOU WIN!!`
+    playAgainBtn.style.display = 'inline-block'
+  } else if (playerIndex === compIndex) {
+    resultMsg.innerHTML = `Nobody likes ties ... Play again`
+    playAgainBtn.style.display = 'inline-block'
   }
 }
 
 let resetGame = () => {
   playerStatus.innerHTML = ''
   compStatus.innerHTML = ''
+  resultMsg.innerHTML = ''
+  playerIndex = ''
+  compIndex = ''
   d1.innerHTML = '1'
   d2.innerHTML = '2'
   d3.innerHTML = '3'
   d4.innerHTML = '4'
   d5.innerHTML = '5'
   d6.innerHTML = '6'
+  rollDiceBtn.style.display = 'none'
   playBtn.style.display = 'block'
+  playAgainBtn.style.display = 'none'
   console.log('play again')
 }
 
-playAgain.addEventListener('click', resetGame)
+playAgainBtn.addEventListener('click', resetGame)
 
 playBtn.addEventListener('click', computerRoll)
 
