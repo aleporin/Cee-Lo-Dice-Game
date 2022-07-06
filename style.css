@@ -29,15 +29,13 @@
   width: 400px;
   justify-content: space-around;
   align-items: center;
-  animation-name: spin;
-  animation-duration: 1000ms;
 }
 
 @keyframes spin {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
@@ -51,6 +49,8 @@
   justify-content: center;
   display: flex;
   box-sizing: border-box;
+  animation-name: spin;
+  animation-duration: 1000ms;
 }
 
 #btn {

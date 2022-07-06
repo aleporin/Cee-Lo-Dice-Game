@@ -184,6 +184,7 @@ let resetGame = () => {
   playBtn.style.display = 'block'
   playAgainBtn.style.display = 'none'
   console.log('play again')
+  // how to reset game so that its like the screen was refreshed. Functionality isnt working after a reset
 }
 
 playAgainBtn.addEventListener('click', resetGame)
