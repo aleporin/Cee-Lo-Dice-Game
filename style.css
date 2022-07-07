@@ -3,7 +3,12 @@
   justify-content: center;
   font-family: 'casino 3D', sans-serif;
   font-size: 50px;
-  animation: bouncey 1.25s infinite;
+  animation: bouncey .75s infinite;
+  color: white;
+}
+
+body {
+  background-image: url(https://t4.ftcdn.net/jpg/03/25/38/41/360_F_325384191_sg1D5lYWfRedGQsBm8xIHnsSAUUUVxGE.jpg);
 }
 
 .screen {
@@ -54,22 +59,21 @@ from {
   justify-content: center;
   display: flex;
   box-sizing: border-box;
-  animation-name: spin;
+  animation: spin 1.5s ;
   animation-duration: 1500ms;
-  background-image: url(/assets/side1.png);
+  /* background-image: url(/assets/side1.png); */
   background-size: cover ;
   background-color: white;
+  border-radius: 10px;
   /* color: white; */
   }
 
 
-#btn {
+  .playBtn {
   display: flex;
   flex-direction: row;
   justify-content: center;
-
-  /* display: none; */
-}
+  }
 
 .players {
   display: flex;
@@ -89,6 +93,11 @@ from {
   font-size: 25px;
 }
 
+.playerScore {
+  font-family: 'casino 3D', sans-serif;
+  color: white;
+  font-size: 25px;
+}
 
 @keyframes bouncey {
   0%,40%,100% {
@@ -98,4 +107,3 @@ from {
     transform: translateY(-20px);
   }
 }
-

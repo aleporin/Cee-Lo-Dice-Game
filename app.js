@@ -1,4 +1,4 @@
-const playBtn = document.querySelector('#btn')
+const playBtn = document.querySelector('.playBtn')
 
 const rollDiceBtn = document.querySelector('#rollDice')
 
@@ -54,12 +54,15 @@ const computerRoll = () => {
   compDice = []
   compDice.push(d1.innerHTML, d2.innerHTML, d3.innerHTML)
   compDice = compDice.sort()
-  setTimeout(computerScore, 1500)
+  setTimeout(computerScore)
 }
 
 const computerScore = () => {
   console.log(compDice)
   if (d1.innerHTML == d2.innerHTML && d2.innerHTML == d3.innerHTML) {
+    computerIndex = heiarchy.indexOf(
+      `${d4.innerHTML}-${d5.innerHTML}-${d6.innerHTML}`
+    )
     compStatus.innerHTML = `Banker rolled triple ${d1.innerHTML}'s`
     rollDiceBtn.style.display = 'inline'
   } else if (d1.innerHTML == d2.innerHTML) {
@@ -106,6 +109,10 @@ const playerRoll = () => {
 const playerScore = () => {
   console.log(playerDice)
   if (d4.innerHTML == d5.innerHTML && d5.innerHTML == d6.innerHTML) {
+    playerIndex = heiarchy.indexOf(
+      `${d4.innerHTML}-${d5.innerHTML}-${d6.innerHTML}`
+    )
+    console.log(playerIndex)
     playerStatus.innerHTML = `You rolled triple ${d4.innerHTML}'s`
     rollDiceBtn.style.display = 'none'
   } else if (d4.innerHTML == d5.innerHTML) {
@@ -163,7 +170,7 @@ const checkForWinner = () => {
     resultMsg.innerHTML = `HEADCRACK YOU WIN!!`
     playAgainBtn.style.display = 'inline-block'
   } else if (playerIndex === compIndex) {
-    resultMsg.innerHTML = `Nobody likes ties ... Play again`
+    // resultMsg.innerHTML = `You also rolled a ${playerIndex}...Nobody likes ties ... Play again`
     playAgainBtn.style.display = 'inline-block'
   }
 }
@@ -183,17 +190,11 @@ let resetGame = () => {
   rollDiceBtn.style.display = 'none'
   playBtn.style.display = 'block'
   playAgainBtn.style.display = 'none'
-  console.log('play again')
-
   // how to reset game so that its like the screen was refreshed. Functionality isnt working after a reset
 }
 
 playAgainBtn.addEventListener('click', resetGame)
 
 playBtn.addEventListener('click', computerRoll)
-{
-  d1.style.animationName = 'spin'
-  d1.style.animationDuration = '1000ms'
-}
 
 rollDiceBtn.addEventListener('click', playerRoll)
