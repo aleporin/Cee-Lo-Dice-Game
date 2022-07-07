@@ -13,6 +13,8 @@ let resultMsg = document.querySelector('.resultMessage')
 let compDice = []
 let playerDice = []
 
+const allDivs = document.querySelectorAll('.die')
+
 const compDivs = document.querySelectorAll('.compDivs')
 let d1 = document.querySelector('#d1')
 let d2 = document.querySelector('#d2')
@@ -200,17 +202,17 @@ let resetGame = () => {
   resultMsg.innerHTML = ''
   playerIndex = ''
   compIndex = ''
-  d1.innerHTML = '1'
-  d2.innerHTML = '2'
-  d3.innerHTML = '3'
-  d4.innerHTML = '4'
-  d5.innerHTML = '5'
-  d6.innerHTML = '6'
+  allDivs.forEach((div, index) => {
+    div.innerHTML = index + 1
+    div.classList.remove(...rollClasses)
+    div.classList.add(`roll${div.innerHTML}`)
+  })
   rollDiceBtn.style.display = 'none'
   playBtn.style.display = 'block'
   playAgainBtn.style.display = 'none'
   // how to reset game so that its like the screen was refreshed. Functionality isnt working after a reset
 }
+resetGame()
 
 playAgainBtn.addEventListener('click', resetGame)
 
