@@ -63,6 +63,7 @@ const computerScore = () => {
     computerIndex = heiarchy.indexOf(
       `${d1.innerHTML}-${d2.innerHTML}-${d3.innerHTML}`
     )
+    console.log(compIndex)
     compStatus.innerHTML = `Banker rolled triple ${d1.innerHTML}'s`
     rollDiceBtn.style.display = 'inline'
   } else if (d1.innerHTML == d2.innerHTML) {
@@ -140,15 +141,14 @@ const playerScore = () => {
     rollDiceBtn.style.display = 'none'
     checkForWinner()
   } else if (JSON.stringify(playerDice) === JSON.stringify(['4', '5', '6'])) {
-    // playerStatus.innerHTML = `HEADCRACK YOU WIN`
     rollDiceBtn.style.display = 'none'
     checkForWinner()
   } else {
     // (d1.innerHTML !== d2.innerHTML && d2.innerHTML !== d3.innerHTML)
-
     // rollDiceBtn.style.display = 'none'
-    playerStatus.innerHTML = `Roll Again`
+    // playerStatus.innerHTML = `Roll Again`
   }
+  checkPlayer()
 }
 
 const checkComputer = () => {
@@ -163,20 +163,30 @@ const checkComputer = () => {
   }
 }
 
-const checkForWinner = () => {
-  console.log(playerIndex, compIndex)
-  if (playerIndex > compIndex) {
-    resultMsg.innerHTML = `Congrats you rolled a ${playerIndex} and won!`
-    playAgainBtn.style.display = 'inline-block'
-  } else if (playerIndex < compIndex) {
-    resultMsg.innerHTML = `Yikes! You rolled a ${playerIndex} and lost!`
-    playAgainBtn.style.display = 'inline-block'
-  } else if (JSON.stringify(playerDice) === JSON.stringify(['1', '2', '3'])) {
+const checkPlayer = () => {
+  if (JSON.stringify(playerDice) === JSON.stringify(['1', '2', '3'])) {
     resultMsg.innerHTML = `1-2-3 yuck. You lose!`
     playAgainBtn.style.display = 'inline-block'
   } else if (JSON.stringify(playerDice) === JSON.stringify(['4', '5', '6'])) {
     resultMsg.innerHTML = `HEADCRACK YOU WIN!!`
     playAgainBtn.style.display = 'inline-block'
+  }
+}
+
+const checkForWinner = () => {
+  console.log(playerIndex, compIndex)
+  if (playerIndex > compIndex) {
+    resultMsg.innerHTML = `Congrats you won!`
+    playAgainBtn.style.display = 'inline-block'
+  } else if (playerIndex < compIndex) {
+    resultMsg.innerHTML = `Yikes! Better luck next time!`
+    playAgainBtn.style.display = 'inline-block'
+    // } else if (JSON.stringify(playerDice) === JSON.stringify(['1', '2', '3'])) {
+    //   resultMsg.innerHTML = `1-2-3 yuck. You lose!`
+    //   playAgainBtn.style.display = 'inline-block'
+    // } else if (JSON.stringify(playerDice) === JSON.stringify(['4', '5', '6'])) {
+    //   resultMsg.innerHTML = `HEADCRACK YOU WIN!!`
+    //   playAgainBtn.style.display = 'inline-block'
   } else if (playerIndex === compIndex) {
     resultMsg.innerHTML = `You also rolled a ${playerIndex}...Nobody likes ties ... Play again`
     playAgainBtn.style.display = 'inline-block'
