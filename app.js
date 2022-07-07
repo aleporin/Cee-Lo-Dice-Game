@@ -54,13 +54,13 @@ const computerRoll = () => {
   compDice = []
   compDice.push(d1.innerHTML, d2.innerHTML, d3.innerHTML)
   compDice = compDice.sort()
-  setTimeout(computerScore)
+  setTimeout(computerScore, 750)
 }
 
 const computerScore = () => {
   console.log(compDice)
   if (d1.innerHTML == d2.innerHTML && d2.innerHTML == d3.innerHTML) {
-    computerIndex = heiarchy.indexOf(
+    compIndex = heiarchy.indexOf(
       `${d1.innerHTML}-${d2.innerHTML}-${d3.innerHTML}`
     )
     console.log(compIndex)
@@ -181,12 +181,6 @@ const checkForWinner = () => {
   } else if (playerIndex < compIndex) {
     resultMsg.innerHTML = `Yikes! Better luck next time!`
     playAgainBtn.style.display = 'inline-block'
-    // } else if (JSON.stringify(playerDice) === JSON.stringify(['1', '2', '3'])) {
-    //   resultMsg.innerHTML = `1-2-3 yuck. You lose!`
-    //   playAgainBtn.style.display = 'inline-block'
-    // } else if (JSON.stringify(playerDice) === JSON.stringify(['4', '5', '6'])) {
-    //   resultMsg.innerHTML = `HEADCRACK YOU WIN!!`
-    //   playAgainBtn.style.display = 'inline-block'
   } else if (playerIndex === compIndex) {
     resultMsg.innerHTML = `You also rolled a ${playerIndex}...Nobody likes ties ... Play again`
     playAgainBtn.style.display = 'inline-block'

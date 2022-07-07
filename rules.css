@@ -2,35 +2,57 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  color: white;
 }
 
-
+body {
+  background-image: url(https://t4.ftcdn.net/jpg/03/25/38/41/360_F_325384191_sg1D5lYWfRedGQsBm8xIHnsSAUUUVxGE.jpg);
+}
 h1 {
   text-align: center;
   font-family: 'casino 3D', sans-serif;
+  font-size: 50px;
+  animation: bouncey .75s infinite;
 }
 
 h2 {
   display: flex;
   justify-content: center;
-  font-size: medium;
+  font-size: 2vh;
+  font-family: 'casino 3D', sans-serif;
+  animation: bouncey 2s infinite;
 }
 
 .board {
   display: flex;
-  height: 500px;
-  width: 500px;
+  height: 24vh;
+  width: 40vh;
   border-width: 1px;
-  border-color: black;
   /* align-items: center;  */
   flex-direction: column;
   border: 1px solid;
   align-self: center;
+  color: white;
+  
 }
 
 .screen {
   display: flex;
   justify-content: center;
   align-items: center;
+  
+}
+
+@keyframes bouncey {
+  0%,40%,100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+}
+
+a {
+  color: white;
 }
 
