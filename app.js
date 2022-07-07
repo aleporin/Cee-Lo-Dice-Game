@@ -136,12 +136,50 @@ const playerScore = () => {
   } else if (JSON.stringify(playerDice) === JSON.stringify(['4', '5', '6'])) {
     // playerStatus.innerHTML = `HEADCRACK YOU WIN`
     rollDiceBtn.style.display = 'none'
-  } else {
+  }
+  checkForWinner()
+
+  if (d1.innerHTML !== d2.innerHTML && d2.innerHTML !== d3.innerHTML) {
     // rollDiceBtn.style.display = 'none'
     playerStatus.innerHTML = `Roll Again`
   }
-  checkForWinner()
 }
+
+// const playerScore = () => {
+//   if (d1.innerHTML !== d2.innerHTML && d2.innerHTML !== d3.innerHTML) {
+//     // rollDiceBtn.style.display = 'none'
+//     playerStatus.innerHTML = `Roll Again`
+//   } else if (d4.innerHTML == d5.innerHTML && d5.innerHTML == d6.innerHTML) {
+//     playerIndex = heiarchy.indexOf(
+//       `${d4.innerHTML}-${d5.innerHTML}-${d6.innerHTML}`
+//     )
+//     console.log(playerIndex)
+//     playerStatus.innerHTML = `You rolled triple ${d4.innerHTML}'s`
+//     rollDiceBtn.style.display = 'none'
+//   } else if (d4.innerHTML == d5.innerHTML) {
+//     // playerStatus.innerHTML = `You rolled a ${d6.innerHTML}`
+//     rollDiceBtn.style.display = 'none'
+//     playerIndex = heiarchy.indexOf(d6.innerHTML)
+//     // console.log(playerIndex)
+//   } else if (d4.innerHTML == d6.innerHTML) {
+//     // playerStatus.innerHTML = `You rolled a ${d5.innerHTML}`
+//     // console.log(JSON.stringify(d5.innerHTML))
+//     playerIndex = heiarchy.indexOf(d5.innerHTML)
+//     rollDiceBtn.style.display = 'none'
+//     // console.log(playerIndex)
+//   } else if (d5.innerHTML == d6.innerHTML) {
+//     // playerStatus.innerHTML = `You rolled a ${d4.innerHTML}`
+//     rollDiceBtn.style.display = 'none'
+//     playerIndex = heiarchy.indexOf(d4.innerHTML)
+//   } else if (JSON.stringify(playerDice) === JSON.stringify(['1', '2', '3'])) {
+//     // playerStatus.innerHTML = `1-2-3 You Lose`
+//     rollDiceBtn.style.display = 'none'
+//   } else if (JSON.stringify(playerDice) === JSON.stringify(['4', '5', '6'])) {
+//     // playerStatus.innerHTML = `HEADCRACK YOU WIN`
+//     rollDiceBtn.style.display = 'none'
+//   }
+//   checkForWinner()
+// }
 
 const checkComputer = () => {
   if (JSON.stringify(compDice) === JSON.stringify(['1', '2', '3'])) {
@@ -170,7 +208,7 @@ const checkForWinner = () => {
     resultMsg.innerHTML = `HEADCRACK YOU WIN!!`
     playAgainBtn.style.display = 'inline-block'
   } else if (playerIndex === compIndex) {
-    // resultMsg.innerHTML = `You also rolled a ${playerIndex}...Nobody likes ties ... Play again`
+    resultMsg.innerHTML = `You also rolled a ${playerIndex}...Nobody likes ties ... Play again`
     playAgainBtn.style.display = 'inline-block'
   }
 }
