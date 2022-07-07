@@ -13,10 +13,12 @@ let resultMsg = document.querySelector('.resultMessage')
 let compDice = []
 let playerDice = []
 
+const compDivs = document.querySelectorAll('.compDivs')
 let d1 = document.querySelector('#d1')
 let d2 = document.querySelector('#d2')
 let d3 = document.querySelector('#d3')
 
+const playerDivs = document.querySelectorAll('.playerDivs')
 let d4 = document.querySelector('#d4')
 let d5 = document.querySelector('#d5')
 let d6 = document.querySelector('#d6')
@@ -25,7 +27,7 @@ let playerIndex
 
 let compIndex
 
-let heiarchy = [
+const heiarchy = [
   '1-2-3',
   '1',
   '2',
@@ -42,15 +44,18 @@ let heiarchy = [
   '4-5-6'
 ]
 
+const rollClasses = ['roll1', 'roll2', 'roll3', 'roll4', 'roll5', 'roll6']
+
 rollDiceBtn.style.display = 'none'
 playAgainBtn.style.display = 'none'
 
 const computerRoll = () => {
+  compDivs.forEach((div) => {
+    div.classList.remove(...rollClasses)
+    div.innerHTML = Math.floor(Math.random() * 6 + 1)
+    div.classList.add(`roll${div.innerHTML}`)
+  })
   playBtn.style.display = 'none'
-  d1.innerHTML = Math.floor(Math.random() * 6 + 1)
-  // d1 and add class name for respective dice background image d1.className = BG + d1.innerHTML
-  d2.innerHTML = Math.floor(Math.random() * 6 + 1)
-  d3.innerHTML = Math.floor(Math.random() * 6 + 1)
   compDice = []
   compDice.push(d1.innerHTML, d2.innerHTML, d3.innerHTML)
   compDice = compDice.sort()
@@ -98,9 +103,11 @@ const computerScore = () => {
 }
 
 const playerRoll = () => {
-  d4.innerHTML = Math.floor(Math.random() * 6 + 1)
-  d5.innerHTML = Math.floor(Math.random() * 6 + 1)
-  d6.innerHTML = Math.floor(Math.random() * 6 + 1)
+  playerDivs.forEach((div) => {
+    div.classList.remove(...rollClasses)
+    div.innerHTML = Math.floor(Math.random() * 6 + 1)
+    div.classList.add(`roll${div.innerHTML}`)
+  })
   playerDice = []
   playerDice.push(d4.innerHTML, d5.innerHTML, d6.innerHTML)
   playerDice = playerDice.sort()

@@ -12,7 +12,7 @@ h1 {
   text-align: center;
   font-family: 'casino 3D', sans-serif;
   font-size: 50px;
-  animation: bouncey .75s infinite;
+  animation: bouncey 2s infinite;
 }
 
 h2 {

@@ -69,6 +69,31 @@ from {
   }
 
 
+  .roll1 {
+    background-image: url(/assets/side1.png);
+  }
+
+  .roll2 {
+    background-image: url(/assets/side2.png);
+    background-size: contain;
+  }
+
+  .roll3 {
+    background-image: url(/assets/side3.png);
+  }
+
+  .roll4 {
+    background-image: url(/assets/side4.png);
+  }
+
+  .roll5 {
+    background-image: url(/assets/side5.png);
+  }
+
+.roll6 {
+  background-image: url(assets/side6.png);
+}
+
   .playBtn {
   display: flex;
   flex-direction: row;
