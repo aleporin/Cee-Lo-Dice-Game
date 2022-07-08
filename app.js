@@ -61,7 +61,7 @@ const computerRoll = () => {
   compDice = []
   compDice.push(d1.innerHTML, d2.innerHTML, d3.innerHTML)
   compDice = compDice.sort()
-  setTimeout(computerScore, 750)
+  setTimeout(computerScore, 1200)
 }
 
 const computerScore = () => {
@@ -75,22 +75,16 @@ const computerScore = () => {
     rollDiceBtn.style.display = 'inline'
   } else if (d1.innerHTML == d2.innerHTML) {
     compStatus.innerHTML = `Banker rolled a ${d3.innerHTML}`
-    // console.log(JSON.stringify(d3.innerHTML))
     rollDiceBtn.style.display = 'inline'
     compIndex = heiarchy.indexOf(d3.innerHTML)
-    // console.log(compIndex)
   } else if (d1.innerHTML == d3.innerHTML) {
     compStatus.innerHTML = `Banker rolled a ${d2.innerHTML}`
-    // console.log(JSON.stringify(d2.innerHTML))
     rollDiceBtn.style.display = 'inline'
     compIndex = heiarchy.indexOf(d2.innerHTML)
-    // console.log(compIndex)
   } else if (d2.innerHTML == d3.innerHTML) {
     compStatus.innerHTML = `Banker rolled a ${d1.innerHTML}`
-    // console.log(JSON.stringify(d1.innerHTML))
     rollDiceBtn.style.display = 'inline'
     compIndex = heiarchy.indexOf(d1.innerHTML)
-    // console.log(compIndex)
   } else if (JSON.stringify(compDice) === JSON.stringify(['1', '2', '3'])) {
     compStatus.innerHTML = `1-2-3 Banker Loses`
     rollDiceBtn.style.display = 'inline'
@@ -128,34 +122,24 @@ const playerScore = () => {
     rollDiceBtn.style.display = 'none'
     checkForWinner()
   } else if (d4.innerHTML == d5.innerHTML) {
-    // playerStatus.innerHTML = `You rolled a ${d6.innerHTML}`
     rollDiceBtn.style.display = 'none'
     playerIndex = heiarchy.indexOf(d6.innerHTML)
     checkForWinner()
-    // console.log(playerIndex)
   } else if (d4.innerHTML == d6.innerHTML) {
-    // playerStatus.innerHTML = `You rolled a ${d5.innerHTML}`
-    // console.log(JSON.stringify(d5.innerHTML))
     playerIndex = heiarchy.indexOf(d5.innerHTML)
     rollDiceBtn.style.display = 'none'
     checkForWinner()
-    // console.log(playerIndex)
   } else if (d5.innerHTML == d6.innerHTML) {
-    // playerStatus.innerHTML = `You rolled a ${d4.innerHTML}`
     rollDiceBtn.style.display = 'none'
     playerIndex = heiarchy.indexOf(d4.innerHTML)
     checkForWinner()
   } else if (JSON.stringify(playerDice) === JSON.stringify(['1', '2', '3'])) {
-    // playerStatus.innerHTML = `1-2-3 You Lose`
     rollDiceBtn.style.display = 'none'
     checkForWinner()
   } else if (JSON.stringify(playerDice) === JSON.stringify(['4', '5', '6'])) {
     rollDiceBtn.style.display = 'none'
     checkForWinner()
   } else {
-    // (d1.innerHTML !== d2.innerHTML && d2.innerHTML !== d3.innerHTML)
-    // rollDiceBtn.style.display = 'none'
-    // playerStatus.innerHTML = `Roll Again`
   }
   checkPlayer()
 }
@@ -210,7 +194,6 @@ let resetGame = () => {
   rollDiceBtn.style.display = 'none'
   playBtn.style.display = 'block'
   playAgainBtn.style.display = 'none'
-  // how to reset game so that its like the screen was refreshed. Functionality isnt working after a reset
 }
 resetGame()
 

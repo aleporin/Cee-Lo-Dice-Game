@@ -28,7 +28,7 @@ h2 {
   height: 24vh;
   width: 40vh;
   border-width: 1px;
-  /* align-items: center;  */
+  align-items: center; 
   flex-direction: column;
   border: 1px solid;
   align-self: center;
