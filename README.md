@@ -10,40 +10,41 @@
 
 ### **_Description_**
 
-####  I am building a dice game called “Cee-Lo” . It is computer vs user . There are 3 dice . You must roll 2 of the same and then the 3rd is your number. For example, if you roll 3-3-4 your number is 4. If you roll a 1,2,3 you lose . If you roll a 4,5,6 you automatically win. If you roll 3 of the same but the other person rolls a higher triple you lose. You roll until you roll one of these conditions.
+####  Cee-Lo: Everyone's favorite three dice game! Cee-Lo is a game I grew up playing with family and continued playing with friends throughout college. Naturally, I thought this would be an awesome game to build after my first two weeks in General Assemblys Software Engineering Immersive course. One thing that was big for me when thinking about my project was creating a project that was meaningful to me. This was an awesome experience and great first project!
 
 ---
 
 ### **_Technologies Used_**
 
-- HTML, CSS, JS 
-- Macbook Pro
-  - Visual Studio Code
-  - Zoom
-  * Terminal
+-HTML
+-CSS
+-Javescript
+
 
 ---
 
 ### **_Getting Started_**
 
-#### I have started my project over the weekend. I have gotten a base layer of HTML and CSS, while also getting some of the Javascript functionality as well. 
+#### I started off with a white board and a bunch of ideas. I had only played Cee-Lo with real dice and against friends. I began by building a base layer for my HTML with some CSS on it. I then went to hardcoding in a bunch of Javascript conditions that met the rules of the game.  
 
-#### My project can be viewed [here](https://github.com/aleporin/ProjectOneGame).
+#### My project can be played [here](https://cee-lo-dice-game.surge.sh/pageTwo.html).
 
 ---
 
 ### **_Screenshots_**
 
-#### image header 1
+####
 
-![Cee-Lo](https://is3-ssl.mzstatic.com/image/thumb/Purple6/v4/14/e5/c3/14e5c34b-03db-e429-fd8f-a718ef260fc8/source/512x512bb.jpg)
+![Cee-Lo](/assets/Screen%20Shot%202022-07-08%20at%2011.30.46%20AM.png)
+![Cee-Lo](/assets/Screen%20Shot%202022-07-08%20at%2011.47.45%20AM.png)
+
 ---
 
 ### **_Future Updates_**
 
-- [ ] CSS animations 
-- [ ] Player One yielding conditions 
-- [x] Computer yielding conditions 
+- [ ] Spin animation when banker is rolling and when user clicks play
+- [ ] Implementing chips and gambling fake chips for user
+- [ ] Implementing a multi-player
 
 ---
 
