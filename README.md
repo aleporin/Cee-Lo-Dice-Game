@@ -10,7 +10,7 @@
 
 ### **_Description_**
 
-####  Cee-Lo: Everyone's favorite three dice game! Cee-Lo is a game I grew up playing with family and continued playing with friends throughout college. Naturally, I thought this would be an awesome game to build after my first two weeks in General Assemblys Software Engineering Immersive course. One thing that was big for me when thinking about my project was creating a project that was meaningful to me. This was an awesome experience and great first project!
+####  Cee-Lo: Everyone's favorite three dice game! Cee-Lo is a game I grew up playing with family and continued playing with friends throughout college. Naturally, I thought this would be an awesome game to build after my first two weeks in General Assemblys Software Engineering Immersive course. One thing that was big for me when thinking about my project was creating a project that was meaningful to me. This was an awesome experience and I believe it turned out great for a weeks time!
 
 ---
 
@@ -25,7 +25,7 @@
 
 ### **_Getting Started_**
 
-#### I started off with a white board and a bunch of ideas. I had only played Cee-Lo with real dice and against friends. I began by building a base layer for my HTML with some CSS on it. I then went to hardcoding in a bunch of Javascript conditions that met the rules of the game.  
+#### The rules of Cee-Lo are that the banker must roll three dice until rolling a "valid" roll. A valid roll is rolling two of the same dice, and the third dice (the odd one out) is the number to beat. The player will then roll in an effort to roll a better roll. 4-5-6 is called "headcrack" and is the best roll in the game. If the banker rolls headcrack, they win without the player even getting a chance to roll. 1-2-3 work just like 4-5-6, however, it is an automatic loss. Triples beats all beside 4-5-6 or a higher triple. Have fun and get to rolling!
 
 #### My project can be played [here](https://cee-lo-dice-game.surge.sh/pageTwo.html).
 
